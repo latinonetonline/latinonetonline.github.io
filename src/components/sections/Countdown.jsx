@@ -1,23 +1,33 @@
 import React, { useEffect, useState } from 'react'
+import moment from 'moment-timezone'
 
 const Countdown = () => {
 
     const [countdown, setCountdown] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-    const [event, setEvent] = useState();
+    const [event, setEvent] = useState({});
+    const [ip, setIp] = useState({});
     let timer;
     useEffect(() => {
+        const fetchIp = fetch("https://ipapi.co/json/");
         fetch("https://raw.githubusercontent.com/latinonetonline/eventsdb/master/events/NextEvent")
             .then(json => json.json())
             .then(event => {
                 setEvent(event)
-                start(event.Date)
+                fetchIp.then(json => json.json())
+                    .then(ip => {
+                        setIp(ip)
+                        start(event.Date)
+                    })
             })
 
         return () => clearInterval(timer);
     }, []);
 
     const start = (date) => {
-        let countDownDate = new Date(date).getTime();
+        let utc = moment.utc(date)
+        let local = utc.local();
+
+        let countDownDate = new Date(local.format()).getTime();
 
         // Update the count down every 1 second
         timer = setInterval(function () {
@@ -41,6 +51,43 @@ const Countdown = () => {
         }, 1000);
     }
 
+    const calendarButton = () => {
+        if (event && ip) {
+            let local = moment.tz(event.Date, ip.timezone)
+            return (
+                <div title="Add to Calendar" className="addeventatc rose wow fadeInUp " data-styling="none" data-wow-delay="0.3s">
+                    Agregar al Calendario
+                    <span className="arrow">&nbsp;</span>
+                    <span className="start">{local.format("DD/MM/YYYY HH:mm")}</span>
+                    <span className="end">{local.add(90, "minutes").format("DD/MM/YYYY HH:mm")}</span>
+                    <span className="timezone">{ip.timezone}</span>
+                    <span className="title">Latino .NET Online - {event.Title}</span>
+                    <span className="description">{event.Description}</span>
+                    <span className="location">https://latinonet.online/live</span>
+                    <span className="organizer">Latino .NET Online</span>
+                    <span className="organizer_email">latinonetonline@outlook.com</span>
+                    <span className="all_day_event">false</span>
+                    <span className="date_format">DD/MM/YYYY</span>
+                    <span className="alarm_reminder">60</span>
+                    <span className="transp">TRANSPARENT</span>
+                </div>)
+        }
+    }
+
+    const subTitle = () => {
+        if (event && ip) {
+            let local = moment.tz(event.Date, ip.timezone).format("DD/MM/YYYY HH:mm")
+            let utc = moment.utc(event.Date).format("DD/MM/YYYY HH:mm")
+
+            return (
+                <>
+                    <p className="wow fadeInDown" data-wow-delay="0.2s">UTC: {utc}</p>
+                    <h6 className="wow fadeInDown" data-wow-delay="0.2s">{ip.timezone}: {local} </h6>
+                </>
+            )
+        }
+
+    }
     return (
         <section className="countdown-timer section-padding">
             <div className="container">
@@ -48,6 +95,7 @@ const Countdown = () => {
                     <div className="col-md-12 col-sm-12 col-xs-12">
                         <div className="heading-count">
                             <h2 className="wow fadeInDown" data-wow-delay="0.2s">Siguiente Webinar comienza en</h2>
+                            {subTitle()}
                         </div>
                     </div>
                     <div className="col-md-12 col-sm-12 col-xs-12">
@@ -60,20 +108,10 @@ const Countdown = () => {
                                 <div className="time-entry seconds"><span id="countdown-seconds">{countdown.seconds}</span> Seconds</div>
                             </div>
                         </div>
+                        {
+                            calendarButton()
+                        }
 
-                        <div title="Add to Calendar" className="addeventatc rose wow fadeInUp " data-styling="none" data-wow-delay="0.3s">
-                            Agregar al Calendario
-                <span className="arrow">&nbsp;</span>
-                            <span className="start">06/18/2015 09:00 AM</span>
-                            <span className="end">06/18/2015 11:00 AM</span>
-                            <span className="timezone">Europe/Paris</span>
-                            <span className="title">Summary of the event</span>
-                            <span className="description">Description of the event</span>
-                            <span className="location">Location of the event</span>
-                            <span className="organizer">Organizer</span>
-                            <span className="organizer_email">Organizer e-mail</span>
-                            <span className="all_day_event">false</span>
-                        </div>
                     </div>
                 </div>
             </div>
