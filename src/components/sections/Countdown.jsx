@@ -3,15 +3,21 @@ import React, { useEffect, useState } from 'react'
 const Countdown = () => {
 
     const [countdown, setCountdown] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+    const [event, setEvent] = useState();
     let timer;
     useEffect(() => {
-        start()
+        fetch("https://raw.githubusercontent.com/latinonetonline/eventsdb/master/events/NextEvent")
+            .then(json => json.json())
+            .then(event => {
+                setEvent(event)
+                start(event.Date)
+            })
+
         return () => clearInterval(timer);
     }, []);
 
-
-    const start = () => {
-        let countDownDate = new Date("Apr 4, 2020 12:00:00").getTime();
+    const start = (date) => {
+        let countDownDate = new Date(date).getTime();
 
         // Update the count down every 1 second
         timer = setInterval(function () {
@@ -26,7 +32,7 @@ const Countdown = () => {
             let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             let seconds = Math.floor((distance % (1000 * 60)) / 1000);
-        
+
             setCountdown({ days: days, hours: hours, minutes: minutes, seconds: seconds })
             // If the count down is finished, write some text
             if (distance < 0) {
@@ -48,7 +54,7 @@ const Countdown = () => {
                         <div className="row time-countdown justify-content-center wow fadeInUp" data-wow-delay="0.2s">
                             <div id="clock" className="time-count">
 
-    <div className="time-entry days"><span id="countdown-days">{countdown.days}</span> Days</div>
+                                <div className="time-entry days"><span id="countdown-days">{countdown.days}</span> Days</div>
                                 <div className="time-entry hours"><span id="countdown-hours">{countdown.hours}</span> Hours</div>
                                 <div className="time-entry minutes"><span id="countdown-minutes">{countdown.minutes}</span> Minutes</div>
                                 <div className="time-entry seconds"><span id="countdown-seconds">{countdown.seconds}</span> Seconds</div>
