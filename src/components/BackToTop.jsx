@@ -13,20 +13,18 @@ const BackToTop = () => {
 
     useEffect(() => {
         if (show) {
-                let op = 0.1;
-                setDisplay('inline')
-                var timer = setInterval(function () {
-                    if (op >= 1) {
-                        clearInterval(timer);
-                    }
-                    console.log(op)
-                    setOpacity(op);
-                    op += op + 0.1;
-                }, 100);
-            
+            let op = 0.1;
+            setDisplay('inline')
+            var timer = setInterval(function () {
+                if (op >= 1) {
+                    clearInterval(timer);
+                }
+                setOpacity(op);
+                op += op + 0.1;
+            }, 100);
+
         }
-        else
-        {
+        else {
             setOpacity(0);
             setDisplay('none')
         }

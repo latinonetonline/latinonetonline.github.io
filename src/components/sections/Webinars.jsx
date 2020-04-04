@@ -6,7 +6,6 @@ const Webinars = (props) => {
     const [webinars, setWebinars] = useState([]);
 
     useEffect(() => {
-        console.log(posts)
         if (posts.length > 0) {
             posts.forEach(element => {
                 fetch(element._links["wp:featuredmedia"][0].href)
