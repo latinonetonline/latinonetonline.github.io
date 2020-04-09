@@ -17,7 +17,8 @@ const Webinars = (props) => {
                                 date: element.date,
                                 excerpt: element.excerpt.rendered,
                                 title: element.title.rendered,
-                                media: featuredmediaObj.source_url
+                                media: featuredmediaObj.source_url,
+                                slug: element.slug
                             }])
                         }))
             });
@@ -26,9 +27,9 @@ const Webinars = (props) => {
     }, [posts]);
 
     const getPost = () => {
-        let sortWebinars = webinars.sort((a,b) => (a.date > b.date) ? 1 : ((b.date > a.date) ? -1 : 0)); 
+        let sortWebinars = webinars.sort((a, b) => (a.date > b.date) ? 1 : ((b.date > a.date) ? -1 : 0));
 
-        if (webinars.length == 3) {
+        if (webinars.length === 3) {
             return (
                 <>
                     <WebinarPost webinar={sortWebinars[2]} />
