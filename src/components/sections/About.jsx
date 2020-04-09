@@ -2,7 +2,7 @@ import React from 'react'
 
 const About = () => {
   return (
-    <section id="event-slides" className="section-padding">
+    <section id="about" className="section-padding">
       <div className="container">
         <div className="row">
           <div className="col-12">

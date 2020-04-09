@@ -885,16 +885,16 @@ a.back-to-top:hover, a.back-to-top:focus {
   box-shadow: 1px 3px 15px rgba(0, 0, 0, 0.1);
 }
 
-#event-slides .video img {
+#about .video img {
   border-radius: 4px;
 }
 
-#event-slides .intro-desc {
+#about .intro-desc {
   line-height: 26px;
   margin-bottom: 30px;
 }
 
-#event-slides .intro-title {
+#about .intro-title {
   color: #212121;
   font-size: 22px;
   font-weight: 700;
@@ -902,12 +902,12 @@ a.back-to-top:hover, a.back-to-top:focus {
   margin-bottom: 15px;
 }
 
-#event-slides .list-specification li {
+#about .list-specification li {
   margin-bottom: 10px;
   font-size: 15px;
 }
 
-#event-slides .list-specification li i {
+#about .list-specification li i {
   margin-right: 5px;
 }
 
