@@ -14,10 +14,10 @@ const Footer = (props) => {
                         <div className="col-md-6 col-lg-3 col-sm-6 col-xs-12 wow fadeInUp" data-wow-delay="0.4s">
                             <h3>QUICK LINKS</h3>
                             <ul>
-                                <li><a href="#">Call For Speakers</a></li>
+                                <li><a href="http://latinonetonline.conosur.tech/call-for-speakers">Call For Speakers</a></li>
                                 <li><a href="/live">Live</a></li>
-                                <li><a href="#">Últimos Webinars</a></li>
-                                <li><a href="#">Feedback</a></li>
+                                <li><a href="/blog">Últimos Webinars</a></li>
+                                <li><a href="https://latinonetonline.conosur.tech/feedback">Feedback</a></li>
                             </ul>
                         </div>
                         <div className="col-md-6 col-lg-3 col-sm-6 col-xs-12 wow fadeInUp" data-wow-delay="0.6s">
@@ -29,7 +29,7 @@ const Footer = (props) => {
 
                             <div className="widget">
                                 <ul className="footer-social">
-                                    <li><a className="twitter" target="_blank" href="https://twitter.com/LatinoNETOnline"><i
+                                    <li><a className="twitter" target="_blank" rel="noopener noreferrer" href="https://twitter.com/LatinoNETOnline"><i
                                         className="lni-twitter-filled"></i></a></li>
                                 </ul>
                             </div>

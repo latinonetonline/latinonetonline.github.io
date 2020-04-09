@@ -40,7 +40,7 @@ const Faq = () => {
                   <div id="questionTwo" className="collapse" aria-labelledby="headingTwo" data-parent="#question">
                     <div className="card-body">
                       Los webcasts son transmitidos en vivo en la plataforma <a target="_blank"
-                        href="https://Mixer.com/LatinoNETOnline">Mixer.com/LatinoNETOnline</a>
+                        rel="noopener noreferrer"href="https://Mixer.com/LatinoNETOnline">Mixer.com/LatinoNETOnline</a>
                     </div>
                   </div>
                 </div>
@@ -86,7 +86,7 @@ const Faq = () => {
                     <div className="card-body">
                       La plataforma de Mixer graba toda la transmisión y la deja disponible para todos durante 14 días. De
                       todas maneras, nosotros la descargamos de Mixer y subimos solamente la charla a <a target="_blank"
-                        href="https://www.youtube.com/channel/UCR173iRDyQXcfkRWZ77gtaA">Nuestro canal de Youtube</a>
+                        rel="noopener noreferrer" href="https://www.youtube.com/channel/UCR173iRDyQXcfkRWZ77gtaA">Nuestro canal de Youtube</a>
                     </div>
                   </div>
                 </div>

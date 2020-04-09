@@ -8,9 +8,9 @@ const WebinarPost = (props) => {
             <div className="about-item">
                 <img className="img-fluid" src={webinar.media} alt="" />
                 <div className="about-text">
-                    <h3><a href="#">{webinar.title}</a></h3>
+                    <h3>{webinar.title}</h3>
                     <div dangerouslySetInnerHTML={{ __html: webinar.excerpt }}></div>
-                    <a className="btn btn-common btn-rm" href="#">Leer más</a>
+                    <a className="btn btn-common btn-rm" href={"/blog#" + webinar.slug}>Leer más</a>
                 </div>
             </div>
         </div>
