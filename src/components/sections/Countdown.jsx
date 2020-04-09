@@ -6,8 +6,35 @@ const Countdown = () => {
     const [countdown, setCountdown] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
     const [event, setEvent] = useState({});
     const [ip, setIp] = useState({});
-    let timer;
     useEffect(() => {
+        let timer;
+        const start = (date) => {
+            let utc = moment.utc(date)
+            let local = utc.local();
+
+            let countDownDate = new Date(local.format()).getTime();
+
+            // Update the count down every 1 second
+            timer = setInterval(function () {
+                // Get today's date and time
+                let now = new Date().getTime();
+
+                // Find the distance between now and the count down date
+                let distance = countDownDate - now;
+
+                // Time calculations for days, hours, minutes and seconds
+                let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                setCountdown({ days: days, hours: hours, minutes: minutes, seconds: seconds })
+                // If the count down is finished, write some text
+                if (distance < 0) {
+                    clearInterval(timer);
+                }
+            }, 1000);
+        }
         const fetchIp = fetch("https://ipapi.co/json/");
         fetch("https://raw.githubusercontent.com/latinonetonline/eventsdb/master/events/NextEvent")
             .then(json => json.json())
@@ -23,33 +50,7 @@ const Countdown = () => {
         return () => clearInterval(timer);
     }, []);
 
-    const start = (date) => {
-        let utc = moment.utc(date)
-        let local = utc.local();
 
-        let countDownDate = new Date(local.format()).getTime();
-
-        // Update the count down every 1 second
-        timer = setInterval(function () {
-            // Get today's date and time
-            let now = new Date().getTime();
-
-            // Find the distance between now and the count down date
-            let distance = countDownDate - now;
-
-            // Time calculations for days, hours, minutes and seconds
-            let days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            let seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            setCountdown({ days: days, hours: hours, minutes: minutes, seconds: seconds })
-            // If the count down is finished, write some text
-            if (distance < 0) {
-                clearInterval(timer);
-            }
-        }, 1000);
-    }
 
     const calendarButton = () => {
         if (event && ip) {
