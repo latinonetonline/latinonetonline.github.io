@@ -20,7 +20,7 @@ const Header = () => {
                             <p className="fadeInUp wow" data-wow-delay=".6s">Somos una comunidad de desarrolladores .NET de toda
                   Latinoamérica!</p>
                             <h1 className="wow fadeInDown heading" data-wow-delay=".4s">Latino .NET Online</h1>
-                            <a href="#" className="fadeInRight wow btn btn-border btn-lg" data-wow-delay=".6s">Explore More</a>
+                            {/* <a href="#about" className="fadeInRight wow btn btn-border btn-lg" data-wow-delay=".6s">Explore More</a> */}
                         </div>
                     </div>
                 </div>

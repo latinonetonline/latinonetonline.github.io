@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import WebinarPost from '../webinars/WebinarPost'
 
 const Webinars = (props) => {
 
@@ -6,13 +7,14 @@ const Webinars = (props) => {
     const [webinars, setWebinars] = useState([]);
 
     useEffect(() => {
-        console.log(posts)
         if (posts.length > 0) {
             posts.forEach(element => {
                 fetch(element._links["wp:featuredmedia"][0].href)
                     .then(featuredmedia => featuredmedia.json()
                         .then(featuredmediaObj => {
                             setWebinars(webinars => [...webinars, {
+                                id: element.id,
+                                date: element.date,
                                 excerpt: element.excerpt.rendered,
                                 title: element.title.rendered,
                                 media: featuredmediaObj.source_url
@@ -23,6 +25,19 @@ const Webinars = (props) => {
         }
     }, [posts]);
 
+    const getPost = () => {
+        let sortWebinars = webinars.sort((a,b) => (a.date > b.date) ? 1 : ((b.date > a.date) ? -1 : 0)); 
+
+        if (webinars.length == 3) {
+            return (
+                <>
+                    <WebinarPost webinar={sortWebinars[2]} />
+                    <WebinarPost webinar={sortWebinars[1]} />
+                    <WebinarPost webinar={sortWebinars[0]} />
+                </>
+            )
+        }
+    }
 
     return (
         <section id="webinars" className="section-padding">
@@ -36,31 +51,8 @@ const Webinars = (props) => {
                     </div>
                 </div>
                 <div className="row">
-                    <div className="col-xs-12 col-md-6 col-lg-4">
-                        <div className="about-item">
-                            <img className="img-fluid" src="assets/img/webinars/webinar3.jpg" alt="" />
-                            <div className="about-text">
-                                <h3><a href="#">Dale dinamismo a tu código C#</a></h3>
-                                <p>Lorem ipsum dolor sit amet, consectetuer commodo ligula eget dolor.</p>
-                                <a className="btn btn-common btn-rm" href="#">Leer más</a>
-                            </div>
-                        </div>
-                    </div>
                     {
-                        webinars.map((webinar, i) => {
-                            return (
-                                <div className="col-xs-12 col-md-6 col-lg-4" key={i}>
-                                    <div className="about-item">
-                                        <img className="img-fluid" src={webinar.media} alt="" />
-                                        <div className="about-text">
-                                            <h3><a href="#">{webinar.title}</a></h3>
-                                            <div dangerouslySetInnerHTML={{ __html: webinar.excerpt }}></div>
-                                            <a className="btn btn-common btn-rm" href="#">Leer más</a>
-                                        </div>
-                                    </div>
-                                </div>)
-                        })
-
+                        getPost()
                     }
                 </div>
                 <div className="row justify-content-center wow fadeInUp">

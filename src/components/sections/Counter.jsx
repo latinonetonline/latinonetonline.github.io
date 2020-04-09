@@ -22,7 +22,7 @@ const Counter = () => {
                     <div className="col-md-6 col-lg-3 col-xs-12 work-counter-widget text-center">
                         <div className="counter wow fadeInRight" data-wow-delay="0.9s">
                             <div className="icon"><i className="lni-users"></i></div>
-                            <p>75</p>
+                            <p>100+</p>
                             <span>Miembros</span>
                         </div>
                     </div>
