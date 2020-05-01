@@ -12,14 +12,14 @@ import BackToTop from '../components/BackToTop';
 
 const Home = () => {
 
-    const [posts, setPost] = useState([])
+    const [page, setPage] = useState({ slugs: [] })
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        fetch("https://latinonetonline.conosur.tech/wp-json/wp/v2/posts?per_page=3&categories=3")
-            .then(posts => posts.json()
-                .then(postsObj => {
-                    setPost(postsObj)
+        fetch("https://us-central1-latino-net-online.cloudfunctions.net/addMessage?page=1&recPerPage=3")
+            .then(data => data.json()
+                .then(data => {
+                    setPage(data)
                     setLoading(false)
                 }))
     }, []);
@@ -29,7 +29,7 @@ const Home = () => {
             <Header />
             <Countdown />
             <About />
-            <Webinars posts={posts} />
+            <Webinars slugs={page.slugs} />
             <Counter />
             <Faq />
             <Whatsapp />

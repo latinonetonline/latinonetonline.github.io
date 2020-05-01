@@ -15,7 +15,7 @@ const Counter = () => {
                     <div className="col-md-6 col-lg-3 col-xs-12 work-counter-widget text-center">
                         <div className="counter wow fadeInRight" data-wow-delay="0.6s">
                             <div className="icon"><i className="lni-timer"></i></div>
-                            <p>3</p>
+                            <p>7</p>
                             <span>Webinars</span>
                         </div>
                     </div>
@@ -29,7 +29,7 @@ const Counter = () => {
                     <div className="col-md-6 col-lg-3 col-xs-12 work-counter-widget text-center">
                         <div className="counter wow fadeInRight" data-wow-delay="1.2s">
                             <div className="icon"><i className="lni-coffee-cup"></i></div>
-                            <p>5</p>
+                            <p>7</p>
                             <span>Articulos</span>
                         </div>
                     </div>

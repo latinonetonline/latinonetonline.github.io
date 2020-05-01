@@ -3,28 +3,28 @@ import WebinarPost from '../webinars/WebinarPost'
 
 const Webinars = (props) => {
 
-    const { posts } = props
+    const { slugs } = props
     const [webinars, setWebinars] = useState([]);
 
     useEffect(() => {
-        if (posts.length > 0) {
-            posts.forEach(element => {
-                fetch(element._links["wp:featuredmedia"][0].href)
-                    .then(featuredmedia => featuredmedia.json()
-                        .then(featuredmediaObj => {
+        if (slugs.length > 0) {
+            slugs.forEach(element => {
+                fetch(`https://raw.githubusercontent.com/latinonetonline/blogdb/master/article/${element}`)
+                    .then(post => post.json()
+                        .then(post => {
                             setWebinars(webinars => [...webinars, {
-                                id: element.id,
-                                date: element.date,
-                                excerpt: element.excerpt.rendered,
-                                title: element.title.rendered,
-                                media: featuredmediaObj.source_url,
-                                slug: element.slug
+                                id: element.ArticleId,
+                                date: post.Date,
+                                excerpt: post.Description,
+                                title: post.Title,
+                                media: post.ImageLink,
+                                slug: post.Slug
                             }])
                         }))
             });
 
         }
-    }, [posts]);
+    }, [slugs]);
 
     const getPost = () => {
         let sortWebinars = webinars.sort((a, b) => (a.date > b.date) ? 1 : ((b.date > a.date) ? -1 : 0));
@@ -57,7 +57,7 @@ const Webinars = (props) => {
                     }
                 </div>
                 <div className="row justify-content-center wow fadeInUp">
-                    <a href="pricing.html" className="btn btn-common wow fadeInUp" data-wow-delay="0.3s">Ver Todos</a>
+                    <a href="/blog" className="btn btn-common wow fadeInUp" data-wow-delay="0.3s">Ver Todos</a>
                 </div>
             </div>
         </section>
