@@ -25,8 +25,8 @@ const Faq = () => {
                   </div>
                   <div id="questionOne" className="collapse" aria-labelledby="headingOne" data-parent="#question">
                     <div className="card-body">
-                      Todos los miembros pueden dar charlas. Solo tienen que proponerla en el formulario de Call For
-                      Speaker.
+                      Todos los miembros pueden dar charlas. Solo tienen que proponerla en el formulario de <a target="_blank"
+                        rel="noopener noreferrer"href="https://latinonet.online/links#callforspeaker">Call For Speaker</a>.
                     </div>
                   </div>
                 </div>
@@ -39,8 +39,8 @@ const Faq = () => {
                   </div>
                   <div id="questionTwo" className="collapse" aria-labelledby="headingTwo" data-parent="#question">
                     <div className="card-body">
-                      Los webcasts son transmitidos en vivo en la plataforma <a target="_blank"
-                        rel="noopener noreferrer"href="https://Mixer.com/LatinoNETOnline">Mixer.com/LatinoNETOnline</a>
+                      Podes unirte a nuestros webinars en nuestro sitio <a target="_blank"
+                        rel="noopener noreferrer"href="https://LatinoNET.Online/live">Live</a>
                     </div>
                   </div>
                 </div>
@@ -57,7 +57,7 @@ const Faq = () => {
                     </div>
                   </div>
                 </div>
-                <div className="card">
+                {/* <div className="card">
                   <div className="card-header" id="headingThree">
                     <div className="header-title" data-toggle="collapse" data-target="#questionFour" aria-expanded="false"
                       aria-controls="questionFour">
@@ -70,7 +70,7 @@ const Faq = () => {
                       para que podamos agregarlo al Blog.
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
             <div className="col-lg-6 col-md-6 col-xs-12 col-sm-12">
@@ -79,13 +79,12 @@ const Faq = () => {
                   <div className="card-header" id="headingOne2">
                     <div className="header-title" data-toggle="collapse" data-target="#questionOne2" aria-expanded="true"
                       aria-controls="collapseOne">
-                      <i className="lni-pencil"></i> ¿Graban los webcasts?
+                      <i className="lni-pencil"></i> ¿Graban los webinars?
                     </div>
                   </div>
                   <div id="questionOne2" className="collapse" aria-labelledby="headingOne" data-parent="#question">
                     <div className="card-body">
-                      La plataforma de Mixer graba toda la transmisión y la deja disponible para todos durante 14 días. De
-                      todas maneras, nosotros la descargamos de Mixer y subimos solamente la charla a <a target="_blank"
+                      Todas nuesrtas charlas quedan grabadas y las subimos a <a target="_blank"
                         rel="noopener noreferrer" href="https://www.youtube.com/channel/UCR173iRDyQXcfkRWZ77gtaA">Nuestro canal de Youtube</a>
                     </div>
                   </div>
@@ -100,7 +99,7 @@ const Faq = () => {
                   <div id="questionTwo2" className="collapse" aria-labelledby="headingTwo" data-parent="#question">
                     <div className="card-body">
                       No importa si recien empezas o tenes más de 10 años de experiencia, siempre vas a poder aprender algo
-                      nuevo con los webcasts y nosotros vamos a responder todas las preguntas que necesites.
+                      nuevo con los webinars y nosotros vamos a responder todas las preguntas que necesites.
                     </div>
                   </div>
                 </div>
@@ -126,7 +125,7 @@ const Faq = () => {
                   </div>
                   <div id="questionSix" className="collapse" aria-labelledby="headingThree" data-parent="#question">
                     <div className="card-body">
-                      Además de proponer temas para dar en los webcasts también nos gustaria que nos sigan en las redes
+                      Además de proponer temas para dar en los webinars también nos gustaria que nos sigan en las redes
                       sociales y que compartan nuestro contenido para poder llegar a más publico y seguir expandiendonos.
                     </div>
                   </div>
