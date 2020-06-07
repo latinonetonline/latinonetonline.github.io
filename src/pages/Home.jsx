@@ -16,7 +16,7 @@ const Home = () => {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        fetch("https://us-central1-latino-net-online.cloudfunctions.net/addMessage?page=1&recPerPage=3")
+        fetch("https://blog.latinonetonline.workers.dev/articles?page=1&recPerPage=3")
             .then(data => data.json()
                 .then(data => {
                     setPage(data)
