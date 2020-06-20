@@ -9,7 +9,7 @@ const Whatsapp = () => {
                         <div className="subscribe-inner wow fadeInDown" data-wow-delay="0.3s">
                             <h2 className="subscribe-title">Unite a nuestro grupo de WhatsApp</h2>
                             <h5><span role="img" aria-label="emojis">👇👇</span></h5>
-                            <a target="_blank" rel="noopener noreferrer" href="https://latinonet.online/links#wsp">
+                            <a target="_blank" rel="noopener noreferrer" href="https://latinonet.online/links#whatsapp">
                                 <img src="/assets/img/wpp.png" width="150px" alt=""/>
                             </a>
                         </div>
