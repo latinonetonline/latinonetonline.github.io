@@ -62,31 +62,6 @@ const Countdown = () => {
         return () => clearInterval(timer);
     }, []);
 
-
-
-    // const calendarButton = () => {
-    //     if (event && ip) {
-    //         let local = moment.tz(event.Date, ip.timezone)
-    //         return (
-    //             <div title="Add to Calendar" className="addeventatc rose wow fadeInUp " data-styling="none" data-wow-delay="0.3s">
-    //                 Agregar al Calendario
-    //                 <span className="arrow">&nbsp;</span>
-    //                 <span className="start">{local.format("DD/MM/YYYY HH:mm")}</span>
-    //                 <span className="end">{local.add(90, "minutes").format("DD/MM/YYYY HH:mm")}</span>
-    //                 <span className="timezone">{ip.timezone}</span>
-    //                 <span className="title">Latino .NET Online - {event.Title}</span>
-    //                 <span className="description">{event.Description}</span>
-    //                 <span className="location">https://latinonet.online/live</span>
-    //                 <span className="organizer">Latino .NET Online</span>
-    //                 <span className="organizer_email">latinonetonline@outlook.com</span>
-    //                 <span className="all_day_event">false</span>
-    //                 <span className="date_format">DD/MM/YYYY</span>
-    //                 <span className="alarm_reminder">60</span>
-    //                 <span className="transp">TRANSPARENT</span>
-    //             </div>)
-    //     }
-    // }
-
     const subTitle = () => {
         if (event && ip) {
             let local = moment.tz(event.Date, ip.timezone).format("DD/MM/YYYY HH:mm")
@@ -121,14 +96,13 @@ const Countdown = () => {
                                 <div className="time-entry seconds"><span id="countdown-seconds">{countdown.seconds}</span> Seconds</div>
                             </div>
                         </div>
-                        {/* {
-                            calendarButton()
-                        } */}
-
+                    </div>
+                    <div className="col-md-12 col-sm-12 col-xs-12">
+                        <div id="eventbrite-widget-container"></div>
                     </div>
                 </div>
             </div>
-            <div id="eventbrite-widget-container"></div>
+
         </section>
     )
 }
