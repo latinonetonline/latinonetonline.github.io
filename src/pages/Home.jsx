@@ -6,7 +6,7 @@ import Webinars from '../components/sections/Webinars';
 import Counter from '../components/sections/Counter';
 import Faq from '../components/sections/Faq';
 import Footer from '../components/footer/Footer';
-import Whatsapp from '../components/sections/Whatsapp';
+import Groups from '../components/sections/Groups';
 import Preloadind from '../components/Preloadind';
 import BackToTop from '../components/BackToTop';
 
@@ -32,7 +32,7 @@ const Home = () => {
             <Webinars slugs={page.slugs} />
             <Counter />
             <Faq />
-            <Whatsapp />
+            <Groups />
             <Footer />
             <BackToTop />
             <Preloadind show={loading} />
