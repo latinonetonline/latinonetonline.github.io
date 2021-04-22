@@ -18,7 +18,7 @@ const Webinars = () => {
                         date: element.pubDate,
                         excerpt: element.description,
                         title: element.title,
-                        media: element.thumbnail,
+                        media: element.enclosure.link,
                         link: element.link
                     }
                     return item;

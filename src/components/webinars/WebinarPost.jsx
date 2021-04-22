@@ -13,12 +13,12 @@ const WebinarPost = (props) => {
     return (
         <div className="col-xs-12 col-md-6 col-lg-4" key={webinar.id}>
             <div className="about-item">
-                <img className="img-fluid" src={webinar.media} alt="" />
+                <img className="img-fluid" src={webinar.media} alt={webinar.title} />
                 <div className="about-text">
                     <h3>{webinar.title}</h3>
-                    {/* {
+                    {
                         formatedExcerpt()
-                    } */}
+                    }
                     <a className="btn btn-common btn-rm" target="_blank" href={webinar.link}>Leer más</a>
                 </div>
             </div>
