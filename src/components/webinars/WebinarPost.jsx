@@ -6,7 +6,7 @@ const WebinarPost = (props) => {
     const formatedExcerpt = () => {
         const excerpt = webinar.excerpt.length > 100 ? webinar.excerpt.substring(0, 97) + '...' : webinar.excerpt
         return (
-            <div> {excerpt}</div>
+            <div dangerouslySetInnerHTML={{ __html: excerpt }}></div>
         )
     }
 
@@ -16,10 +16,10 @@ const WebinarPost = (props) => {
                 <img className="img-fluid" src={webinar.media} alt="" />
                 <div className="about-text">
                     <h3>{webinar.title}</h3>
-                    {
+                    {/* {
                         formatedExcerpt()
-                    }
-                    <a className="btn btn-common btn-rm" href={"/blog#posts/" + webinar.slug}>Leer más</a>
+                    } */}
+                    <a className="btn btn-common btn-rm" target="_blank" href={webinar.link}>Leer más</a>
                 </div>
             </div>
         </div >

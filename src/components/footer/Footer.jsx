@@ -16,7 +16,7 @@ const Footer = (props) => {
                             <ul>
                                 <li><a href="https://latinonet.online/links#callforspeaker">Call For Speakers</a></li>
                                 <li><a href="/live">Live</a></li>
-                                <li><a href="/blog">Últimos Webinars</a></li>
+                                <li><a href="https://www.meetup.com/latino-net-online/">Últimos Webinars</a></li>
                                 <li><a href="https://latinonet.online/links#feedback">Feedback</a></li>
                             </ul>
                         </div>

@@ -29,7 +29,7 @@ const Home = () => {
             <Header />
             <Countdown />
             <About />
-            <Webinars slugs={page.slugs} />
+            <Webinars />
             <Counter />
             <Faq />
             <Groups />
