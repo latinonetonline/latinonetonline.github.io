@@ -1,40 +1,39 @@
 import React, { useEffect, useState } from 'react'
 import WebinarPost from '../webinars/WebinarPost'
 
-const Webinars = (props) => {
+const Webinars = () => {
 
-    const { slugs } = props
     const [webinars, setWebinars] = useState([]);
 
     useEffect(() => {
-        if (slugs.length > 0) {
-            slugs.forEach(element => {
-                fetch(`https://raw.githubusercontent.com/latinonetonline/blogdb/master/article/${element}`)
-                    .then(post => post.json()
-                        .then(post => {
-                            setWebinars(webinars => [...webinars, {
-                                id: element.ArticleId,
-                                date: post.Date,
-                                excerpt: post.Description,
-                                title: post.Title,
-                                media: post.ImageLink,
-                                slug: post.Slug
-                            }])
-                        }))
-            });
 
-        }
-    }, [slugs]);
+        fetch('https://api.rss2json.com/v1/api.json?rss_url=http%3A%2F%2Ffetchrss.com%2Frss%2F6081956527aaa6478149ede3608195d4a43ff1007c099c92.xml')
+            .then(data => data.json())
+            .then(result =>
+
+                setWebinars(result.items.map(element => {
+
+                    var item = {
+                        id: element.guid,
+                        date: element.pubDate,
+                        excerpt: element.description,
+                        title: element.title,
+                        media: element.thumbnail,
+                        link: element.link
+                    }
+                    return item;
+                }))
+            )
+    }, []);
 
     const getPost = () => {
-        let sortWebinars = webinars.sort((a, b) => (a.date > b.date) ? 1 : ((b.date > a.date) ? -1 : 0));
 
-        if (webinars.length === 3) {
+        if (webinars.length > 0) {
             return (
                 <>
-                    <WebinarPost webinar={sortWebinars[2]} />
-                    <WebinarPost webinar={sortWebinars[1]} />
-                    <WebinarPost webinar={sortWebinars[0]} />
+                    <WebinarPost webinar={webinars[0]} />
+                    <WebinarPost webinar={webinars[1]} />
+                    <WebinarPost webinar={webinars[2]} />
                 </>
             )
         }
@@ -47,7 +46,7 @@ const Webinars = (props) => {
                     <div className="col-12">
                         <div className="section-title-header text-center">
                             <h1 className="section-title wow fadeInUp" data-wow-delay="0.2s">Ultimos Webinars Transmitidos</h1>
-                            <p className="wow fadeInDown" data-wow-delay="0.2s">Resumenes de cada una de nuestras transmisiones</p>
+                            <p className="wow fadeInDown" data-wow-delay="0.2s">Estos fueron nuestros últimos webinars</p>
                         </div>
                     </div>
                 </div>
@@ -57,7 +56,7 @@ const Webinars = (props) => {
                     }
                 </div>
                 <div className="row justify-content-center wow fadeInUp">
-                    <a href="/blog" className="btn btn-common wow fadeInUp" data-wow-delay="0.3s">Ver Todos</a>
+                    <a href="https://www.meetup.com/latino-net-online/" className="btn btn-common wow fadeInUp" data-wow-delay="0.3s" target="_blank">Ver Todos</a>
                 </div>
             </div>
         </section>
