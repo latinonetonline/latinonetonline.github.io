@@ -13,16 +13,7 @@ import BackToTop from '../components/BackToTop';
 const Home = () => {
 
     const [page, setPage] = useState({ slugs: [] })
-    const [loading, setLoading] = useState(true)
-
-    useEffect(() => {
-        fetch("https://blog.latinonetonline.workers.dev/articles?page=1&recPerPage=3")
-            .then(data => data.json()
-                .then(data => {
-                    setPage(data)
-                    setLoading(false)
-                }))
-    }, []);
+    const [loading, setLoading] = useState(false)
 
     return (
         <>
