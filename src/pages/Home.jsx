@@ -21,7 +21,7 @@ const Home = () => {
             <Countdown />
             <About />
             <Webinars />
-            <Counter />
+            {/* <Counter /> */}
             <Faq />
             <Groups />
             <Footer />
