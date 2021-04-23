@@ -4,14 +4,6 @@ const Counter = () => {
 
     const [countArticles, setCountArticles] = useState({ length: 0 })
 
-    useEffect(() => {
-        fetch("https://blog.latinonetonline.workers.dev/countArticles")
-            .then(data => data.json()
-                .then(data => {
-                    setCountArticles(data)
-                }))
-    }, []);
-
     return (
         <section className="counter-section section-padding">
             <div className="container">

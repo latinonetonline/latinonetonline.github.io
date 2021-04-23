@@ -8,16 +8,10 @@ const Countdown = () => {
     const [ip, setIp] = useState({});
     useEffect(() => {
 
-        const RSS_URL = `https://www.meetup.com/latino-net-online/events/rss/`;
-
-        fetch(RSS_URL)
-        .then(response => response.text())
-        .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
-        .then(data => console.log(data))
-
         let timer;
         const start = (date) => {
-            let utc = moment.utc(date)
+
+            let utc = moment.utc(date).add(5, 'hours')
             let local = utc.local();
 
             let countDownDate = new Date(local.format()).getTime();
@@ -44,27 +38,20 @@ const Countdown = () => {
             }, 1000);
         }
         const fetchIp = fetch("https://ipapi.co/json/");
-        fetch("https://raw.githubusercontent.com/latinonetonline/eventsdb/master/events/NextEvent")
+        fetch(`https://meetupevents.latinonetonline.workers.dev`)
             .then(json => json.json())
-            .then(event => {
-                setEvent(event)
-                window.EBWidgets.createWidget({
-                    // Required
-                    widgetType: 'checkout',
-                    eventId: event.EventbriteEventId,
-                    iframeContainerId: 'eventbrite-widget-container',
+            .then(events => {
+                console.log(events)
+                if (events.length > 0) {
+                    setEvent(events[0])
 
-                    // Optional
-                    iframeContainerHeight: 425,  // Widget height in pixels. Defaults to a minimum of 425px if not provided
-                    onOrderComplete: function () {
-                        console.log('Order complete!');
-                    }  // Method called when an order has successfully completed
-                });
-                fetchIp.then(json => json.json())
-                    .then(ip => {
-                        setIp(ip)
-                        start(event.Date)
-                    })
+                    fetchIp.then(json => json.json())
+                        .then(ip => {
+                            setIp(ip)
+                            start(events[0].local_time)
+                        })
+                }
+
             })
 
         return () => clearInterval(timer);
@@ -72,8 +59,8 @@ const Countdown = () => {
 
     const subTitle = () => {
         if (event && ip) {
-            let local = moment.tz(event.Date, ip.timezone).format("DD/MM/YYYY HH:mm")
-            let utc = moment.utc(event.Date).format("DD/MM/YYYY HH:mm")
+            let local = moment.tz(event.local_time, ip.timezone).add(5, 'hours').format("DD/MM/YYYY HH:mm")
+            let utc = moment.utc(event.local_time).add(5, 'hours').format("DD/MM/YYYY HH:mm")
 
             return (
                 <>
@@ -84,35 +71,40 @@ const Countdown = () => {
         }
 
     }
-    return (
-        <section className="countdown-timer section-padding">
-            <div className="container">
-                <div className="row text-center">
-                    <div className="col-md-12 col-sm-12 col-xs-12">
-                        <div className="heading-count">
-                            <h2 className="wow fadeInDown" data-wow-delay="0.2s">Siguiente Webinar comienza en</h2>
-                            {subTitle()}
-                        </div>
-                    </div>
-                    <div className="col-md-12 col-sm-12 col-xs-12">
-                        <div className="row time-countdown justify-content-center wow fadeInUp" data-wow-delay="0.2s">
-                            <div id="clock" className="time-count">
-
-                                <div className="time-entry days"><span id="countdown-days">{countdown.days}</span> Days</div>
-                                <div className="time-entry hours"><span id="countdown-hours">{countdown.hours}</span> Hours</div>
-                                <div className="time-entry minutes"><span id="countdown-minutes">{countdown.minutes}</span> Minutes</div>
-                                <div className="time-entry seconds"><span id="countdown-seconds">{countdown.seconds}</span> Seconds</div>
+    if (event.local_time) {
+        return (
+            <section className="countdown-timer section-padding">
+                <div className="container">
+                    <div className="row text-center">
+                        <div className="col-md-12 col-sm-12 col-xs-12">
+                            <div className="heading-count">
+                                <h2 className="wow fadeInDown" data-wow-delay="0.2s">Siguiente Webinar comienza en</h2>
+                                {subTitle()}
                             </div>
                         </div>
-                    </div>
-                    <div className="col-md-12 col-sm-12 col-xs-12">
-                        <div id="eventbrite-widget-container"></div>
+                        <div className="col-md-12 col-sm-12 col-xs-12">
+                            <div className="row time-countdown justify-content-center wow fadeInUp" data-wow-delay="0.2s">
+                                <div id="clock" className="time-count">
+
+                                    <div className="time-entry days"><span id="countdown-days">{countdown.days}</span> Days</div>
+                                    <div className="time-entry hours"><span id="countdown-hours">{countdown.hours}</span> Hours</div>
+                                    <div className="time-entry minutes"><span id="countdown-minutes">{countdown.minutes}</span> Minutes</div>
+                                    <div className="time-entry seconds"><span id="countdown-seconds">{countdown.seconds}</span> Seconds</div>
+                                </div>
+                            </div>
+                            <a className="btn btn-common btn-rm" target="_blank" style={{ fontSize: "20px" }} href={event.event_url}>Registrarse</a>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-        </section>
-    )
+            </section>
+        )
+    }
+    else {
+        return (
+            <></>
+        )
+    }
 }
 
 export default Countdown;
