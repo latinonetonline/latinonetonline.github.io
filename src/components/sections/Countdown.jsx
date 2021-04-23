@@ -7,6 +7,14 @@ const Countdown = () => {
     const [event, setEvent] = useState({});
     const [ip, setIp] = useState({});
     useEffect(() => {
+
+        const RSS_URL = `https://www.meetup.com/latino-net-online/events/rss/`;
+
+        fetch(RSS_URL)
+        .then(response => response.text())
+        .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
+        .then(data => console.log(data))
+
         let timer;
         const start = (date) => {
             let utc = moment.utc(date)
