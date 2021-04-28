@@ -16,7 +16,7 @@ const Header = () => {
                     <div className="carousel-item active">
                         <img className="d-block w-100" src="assets/img/latinonet/fondo.jpg" alt="First slide" />
                         <div className="carousel-caption d-md-block">
-                            <img src="assets/img/latinonet/Logo Hexagono.png" alt="Logo" style={{ width: "20%", margin: "40px", }} />
+                            <img id="logo" src="assets/img/latinonet/Logo Hexagono.png" alt="Logo" />
                             <p className="fadeInUp wow" data-wow-delay=".6s">Somos una comunidad de desarrolladores .NET de toda
                   Latinoamérica!</p>
                             <h1 className="wow fadeInDown heading" data-wow-delay=".4s">Latino .NET Online</h1>
