@@ -11,7 +11,7 @@ const Webinars = () => {
             .then(data => data.json())
             .then(result =>
 
-                setWebinars(result.map(element => {
+                setWebinars(result.meetupEvents.map(element => {
 
                     var item = {
                         date: element.startDate,
