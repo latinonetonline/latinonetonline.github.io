@@ -35,7 +35,7 @@ const BackToTop = () => {
     }
 
     return (
-        <a href="#header-wrap" className="back-to-top" style={{ opacity: opacity, display: display }}>
+        <a href="#header-wrap" className="back-to-top">
             <i className="lni-chevron-up"></i>
         </a>
     )
