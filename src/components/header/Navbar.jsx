@@ -24,8 +24,7 @@ const Navbar = () => {
                         <span className="icon-menu"></span>
                         <span className="icon-menu"></span>
                     </button>
-                    <a href="index.html" className="navbar-brand"><img src="assets/img/latinonet/Logo Hexagono.png" alt="logo"
-                        style={{ width: "10%" }} /></a>
+                    <a href="index.html" className="navbar-brand"><img id="navbar-logo" src="assets/img/latinonet/Logo Hexagono.png" alt="logo" /></a>
                 </div>
                 <div className="collapse navbar-collapse" id="main-navbar">
                     <ul className="navbar-nav mr-auto w-100 justify-content-end">
