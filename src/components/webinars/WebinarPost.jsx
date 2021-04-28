@@ -20,6 +20,9 @@ const WebinarPost = (props) => {
                         formatedExcerpt()
                     }
                     <a className="btn btn-common btn-rm" target="_blank" href={webinar.link}>Leer más</a>
+                    <a className="btn-youtube float-right" target="_blank" rel="noopener noreferrer" href={webinar.youtube}>
+                        <img src="assets/img/youtube.png" width="45" alt={webinar.title + " Youtube"}/>
+                    </a>
                 </div>
             </div>
         </div >
