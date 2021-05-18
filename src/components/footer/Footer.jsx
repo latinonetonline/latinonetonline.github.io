@@ -14,7 +14,7 @@ const Footer = (props) => {
                         <div className="col-md-6 col-lg-3 col-sm-6 col-xs-12 wow fadeInUp" data-wow-delay="0.4s">
                             <h3>QUICK LINKS</h3>
                             <ul>
-                                <li><a href="https://go.latinonet.online/callforspeaker">Call For Speakers</a></li>
+                                <li><a href="https://latinonet.online/callforspeakers/">Call For Speakers</a></li>
                                 <li><a href="/live">Live</a></li>
                                 <li><a href="https://www.meetup.com/latino-net-online/">Últimos Webinars</a></li>
                                 <li><a href="https://go.latinonet.online/feedback">Feedback</a></li>

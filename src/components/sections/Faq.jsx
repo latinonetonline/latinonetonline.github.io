@@ -26,7 +26,7 @@ const Faq = () => {
                   <div id="questionOne" className="collapse" aria-labelledby="headingOne" data-parent="#question">
                     <div className="card-body">
                       Todos los miembros pueden dar charlas. Solo tienen que proponerla en el formulario de <a target="_blank"
-                        rel="noopener noreferrer"href="https://latinonet.online/links#callforspeaker">Call For Speaker</a>.
+                        rel="noopener noreferrer"href="https://latinonet.online/callforspeakers/">Call For Speaker</a>.
                     </div>
                   </div>
                 </div>
