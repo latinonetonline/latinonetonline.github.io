@@ -31,6 +31,8 @@ const Footer = (props) => {
                                 <ul className="footer-social">
                                     <li><a className="twitter" target="_blank" rel="noopener noreferrer" href="https://twitter.com/LatinoNETOnline"><i
                                         className="lni-twitter-filled"></i></a></li>
+                                    <li><a className="twitter" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/LatinoNETOnline"><i
+                                        className="lni-facebook-filled"></i></a></li>
                                 </ul>
                             </div>
                         </div>

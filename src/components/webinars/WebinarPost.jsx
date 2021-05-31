@@ -11,18 +11,25 @@ const WebinarPost = (props) => {
     }
 
     return (
-        <div className="col-xs-12 col-md-6 col-lg-4" key={webinar.id}>
+        <div className="col-xs-12 col-md-6 col-lg-4 wow fadeInUp" key={webinar.id}>
             <div className="about-item">
-                <img className="img-fluid" src={webinar.media} alt={webinar.title} />
+                <a target="_blank" href={webinar.link}><img className="img-fluid" src={webinar.media} alt={webinar.title} /></a>
                 <div className="about-text">
-                    <h3>{webinar.title}</h3>
+                    <div className="about-title">
+                        <h3>
+                            <a target="_blank" href={webinar.link}>
+                                {webinar.title}
+                            </a>
+                        </h3>
+                    </div>
                     {
                         formatedExcerpt()
                     }
-                    <a className="btn btn-common btn-rm" target="_blank" href={webinar.link}>Leer más</a>
-                    <a className="btn-youtube float-right" target="_blank" href={webinar.youtube}>
-                        <img src="assets/img/youtube.png" width="45" alt={webinar.title + " Youtube"}/>
-                    </a>
+                    <div className="row justify-content-end">
+                        <a className="btn-youtube" target="_blank" href={webinar.youtube}>
+                            <img src="assets/img/youtube.png" width="45" alt={webinar.title + " Youtube"} />
+                        </a>
+                    </div>
                 </div>
             </div>
         </div >
