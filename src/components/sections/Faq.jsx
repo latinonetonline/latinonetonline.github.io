@@ -66,8 +66,9 @@ const Faq = () => {
                 </div>
                 <div id="questionFour" className="collapse" aria-labelledby="headingThree" data-parent="#question">
                   <div className="card-body">
-                      Eso depende vos. Conocenos, participa con nosotros, unite a nuestros grupos y luego de un tiempo preguntate si te sentis parte de la comunidad. 
-                      No hay que pedir permiso para ser un miembro. Todo queda en vos.
+                      No hay que pedir permiso para ser parte de la comunidad.
+                      Si te sientes parte de Latino .NET Online, pues bienvenido!
+                      Y si no, de todas formas te invitamos a participar con nosotros de todas nuestras iniciativas
                   </div>
                 </div>
               </div>

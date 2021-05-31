@@ -21,7 +21,7 @@ const Social = () => {
                         </FacebookProvider>
                     </div>
                     <div className="col-md-6 col-lg-6 col-xs-12 wow fadeInLeft" data-wow-delay="0.3s">
-                        <Follow username="latinonetonline" options={{ size: "large" }} />
+                        <Follow username="latinonetonline" options={{ lang: "es", size: "large" }} />
 
                         <Timeline
                             dataSource={{ sourceType: "profile", screenName: "latinonetonline" }}
