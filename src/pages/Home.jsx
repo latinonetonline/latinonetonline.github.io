@@ -6,6 +6,7 @@ import Webinars from '../components/sections/Webinars';
 import Faq from '../components/sections/Faq';
 import Footer from '../components/footer/Footer';
 import Groups from '../components/sections/Groups';
+import Social from '../components/sections/Social';
 import Preloadind from '../components/Preloadind';
 import BackToTop from '../components/BackToTop';
 
@@ -18,6 +19,7 @@ const Home = () => {
             <Webinars />
             {/* <Counter /> */}
             <Faq />
+            <Social />
             <Groups />
             <Footer />
             <BackToTop />

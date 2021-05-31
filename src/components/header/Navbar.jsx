@@ -49,6 +49,11 @@ const Navbar = () => {
                                 Faq
                   </a>
                         </li>
+                        <li className="nav-item">
+                            <a className="nav-link" href="#social-networks">
+                                Social
+                  </a>
+                        </li>
 
                         <li className="nav-item">
                             <a className="nav-link" href="#subscribe">
