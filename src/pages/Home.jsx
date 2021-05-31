@@ -7,6 +7,7 @@ import Faq from '../components/sections/Faq';
 import Footer from '../components/footer/Footer';
 import Groups from '../components/sections/Groups';
 import Social from '../components/sections/Social';
+import Organizers from '../components/sections/Organizers';
 import Preloadind from '../components/Preloadind';
 import BackToTop from '../components/BackToTop';
 
@@ -21,6 +22,7 @@ const Home = () => {
             <Faq />
             <Social />
             <Groups />
+            <Organizers />
             <Footer />
             <BackToTop />
             {/* <Preloadind show={loading} /> */}

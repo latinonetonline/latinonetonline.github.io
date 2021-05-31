@@ -14,7 +14,7 @@ const WebinarPost = (props) => {
         <div className="col-xs-12 col-md-6 col-lg-4 wow fadeInUp" key={webinar.id}>
             <div className="about-item">
                 <a target="_blank" href={webinar.link}><img className="img-fluid" width="800" src={webinar.media} alt={webinar.title} /></a>
-                <div className="about-text">
+                <div className="about-text height-100">
                     <div className="about-title">
                         <h3>
                             <a target="_blank" href={webinar.link}>
