@@ -12,7 +12,7 @@ const Footer = (props) => {
                             <p>LATINO .NET ONLINE</p>
                         </div>
                         <div className="col-md-6 col-lg-3 col-sm-6 col-xs-12 wow fadeInUp" data-wow-delay="0.4s">
-                            <h3>QUICK LINKS</h3>
+                            <h3>ALGUNOS LINKS</h3>
                             <ul>
                                 <li><a href="https://latinonet.online/callforspeakers/">Call For Speakers</a></li>
                                 <li><a href="/live">Live</a></li>
@@ -23,7 +23,7 @@ const Footer = (props) => {
                         <div className="col-md-6 col-lg-3 col-sm-6 col-xs-12 wow fadeInUp" data-wow-delay="0.6s">
                         </div>
                         <div className="col-md-6 col-lg-3 col-sm-6 col-xs-12 wow fadeInUp" data-wow-delay="0.8s">
-                            <h3>FOLLOW US ON</h3>
+                            <h3>REDES SOCIALES</h3>
                             <div className="widget">
                             </div>
 
