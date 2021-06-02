@@ -11,16 +11,22 @@ const Groups = () => {
                         </div>
                     </div>
 
-                    <div className="col-md-3 col-lg-3 col-xs-12 offset-md-3 wow fadeInRight" data-wow-delay="0.3s">
+                    <div className="col-md-4 col-lg-4 col-xs-12 wow fadeInRight" data-wow-delay="0.3s">
                             <a target="_blank" rel="noopener noreferrer" href="https://go.latinonet.online/discord">
                                 <img src="/assets/img/discord.png" width="150px" alt="" />
                             </a>
                         
                     </div>
-                    <div className="col-md-3 col-lg-3 col-xs-12 wow fadeInLeft text-right" data-wow-delay="0.3s">
+                    <div className="col-md-4 col-lg-4 col-xs-12 wow fadeInLeft text-center" data-wow-delay="0.3s">
+                
+                            <a target="_blank" rel="noopener noreferrer" href="https://go.latinonet.online/meetup">
+                                <img src="/assets/img/meetup.png" width="180px" alt="" />
+                            </a>
+                    </div>
+                    <div className="col-md-4 col-lg-4 col-xs-12 wow fadeInLeft text-right" data-wow-delay="0.3s">
                 
                             <a target="_blank" rel="noopener noreferrer" href="https://go.latinonet.online/whatsapp">
-                                <img src="/assets/img/wpp.png" width="150px" alt="" />
+                                <img src="/assets/img/wpp.png" width="140px" alt="" />
                             </a>
                     </div>
                 </div>
