@@ -3,8 +3,8 @@ import React, { useEffect, useState } from 'react'
 const BackToTop = () => {
 
     const [show, setShow] = useState(false);
-    const [opacity, setOpacity] = useState(1);
-    const [display, setDisplay] = useState("inline");
+    // const [opacity, setOpacity] = useState(1);
+    // const [display, setDisplay] = useState("inline");
 
     useEffect(() => {
         window.addEventListener('scroll', handleScroll);
@@ -14,19 +14,19 @@ const BackToTop = () => {
     useEffect(() => {
         if (show) {
             let op = 0.1;
-            setDisplay('inline')
+            // setDisplay('inline')
             var timer = setInterval(function () {
                 if (op >= 1) {
                     clearInterval(timer);
                 }
-                setOpacity(op);
+                // setOpacity(op);
                 op += op + 0.1;
             }, 100);
 
         }
         else {
-            setOpacity(0);
-            setDisplay('none')
+            // setOpacity(0);
+            // setDisplay('none')
         }
     }, [show]);
 

@@ -56,7 +56,7 @@ const Webinars = () => {
                     }
                 </div>
                 <div className="row justify-content-center wow fadeInUp">
-                    <a href="https://www.meetup.com/latino-net-online/" className="btn btn-common wow fadeInUp" data-wow-delay="0.3s" target="_blank">Ver Todos</a>
+                    <a href="https://www.meetup.com/latino-net-online/" rel="noopener noreferrer" className="btn btn-common wow fadeInUp" data-wow-delay="0.3s" target="_blank">Ver Todos</a>
                 </div>
             </div>
         </section>
