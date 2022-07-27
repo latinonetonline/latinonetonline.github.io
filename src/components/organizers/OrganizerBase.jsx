@@ -14,7 +14,7 @@ const OrganizerBase = props => {
                 <div className="about-text">
                     <div className="about-title organizer-title">
                         <h3>
-                            <a target="_blank" href={website}>
+                            <a target="_blank" rel="noopener noreferrer" href={website}>
                                 {name}
                             </a>
                         </h3>

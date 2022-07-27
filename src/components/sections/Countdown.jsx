@@ -92,7 +92,7 @@ const Countdown = () => {
                                     <div className="time-entry seconds"><span id="countdown-seconds">{countdown.seconds}</span> Seconds</div>
                                 </div>
                             </div>
-                            <a className="btn btn-common btn-rm" target="_blank" id="registrarse" href={event.event_url}>Registrarse</a>
+                            <a className="btn btn-common btn-rm" target="_blank"  rel="noopener noreferrer" id="registrarse" href={event.event_url}>Registrarse</a>
                         </div>
                     </div>
                 </div>

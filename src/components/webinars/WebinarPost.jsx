@@ -13,11 +13,11 @@ const WebinarPost = (props) => {
     return (
         <div className="col-xs-12 col-md-6 col-lg-4 wow fadeInUp" key={webinar.id}>
             <div className="about-item">
-                <a target="_blank" href={webinar.link}><img className="img-fluid" width="800" src={webinar.media} alt={webinar.title} /></a>
+                <a target="_blank" href={webinar.link} rel="noopener noreferrer"><img className="img-fluid" width="800" src={webinar.media} alt={webinar.title} /></a>
                 <div className="about-text height-100">
                     <div className="about-title">
                         <h3>
-                            <a target="_blank" href={webinar.link}>
+                            <a target="_blank" rel="noopener noreferrer"href={webinar.link}>
                                 {webinar.title}
                             </a>
                         </h3>
@@ -26,7 +26,7 @@ const WebinarPost = (props) => {
                         formatedExcerpt()
                     }
                     <div className="row justify-content-end">
-                        <a className="btn-youtube" target="_blank" href={webinar.youtube}>
+                        <a className="btn-youtube" target="_blank" rel="noopener noreferrer" href={webinar.youtube}>
                             <img src="assets/img/youtube.png" width="45" alt={webinar.title + " Youtube"} />
                         </a>
                     </div>
