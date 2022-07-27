@@ -38,17 +38,17 @@ const Countdown = () => {
             }, 1000);
         }
         const fetchIp = fetch("https://ipapi.co/json/");
-        fetch(`https://meetupevents.latinonetonline.workers.dev`)
+        fetch(`https://api.latinonet.online/api/v1/webinars-module/Website/NextWebinar`)
             .then(json => json.json())
-            .then(events => {
-                console.log(events)
-                if (events.length > 0) {
-                    setEvent(events[0])
+            .then(event => {
+                console.log(event)
+                if (event) {
+                    setEvent(event)
 
                     fetchIp.then(json => json.json())
                         .then(ip => {
                             setIp(ip)
-                            start(events[0].local_time)
+                            start(event.eventDate)
                         })
                 }
 

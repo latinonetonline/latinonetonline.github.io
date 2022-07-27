@@ -7,19 +7,19 @@ const Webinars = () => {
 
     useEffect(() => {
 
-        fetch('https://raw.githubusercontent.com/latinonetonline/eventsdb/main/events/PastEvents')
+        fetch('https://api.latinonet.online/api/v1/webinars-module/Website/PastWebinars')
             .then(data => data.json())
             .then(result =>
 
-                setWebinars(result.meetupEvents.map(element => {
+                setWebinars(result.result.map(element => {
 
                     var item = {
-                        date: element.startDate,
+                        date: element.eventDate,
                         excerpt: element.description,
                         title: element.title,
-                        media: element.image,
-                        link: element.meetupLink,
-                        youtube: element.youtubeLink
+                        media: element.flyer,
+                        link: element.meetup,
+                        youtube: element.liveStreaming
                     }
                     return item;
                 }))
